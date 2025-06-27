@@ -1,0 +1,21 @@
+{
+  "name": "@deco/workers-example",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "deco dev",
+    "gen": "deco gen > env.gen.ts",
+    "setup": "deno install -Ar -g -n deco jsr:@deco/cli -f"
+  },
+  "dependencies": {
+    "@cloudflare/workers-types": "^4.20250617.0",
+    "@deco/workers-runtime": "npm:@jsr/deco__workers-runtime@^0.1.9"
+  },
+  "devDependencies": {
+    "wrangler": "^4.13.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

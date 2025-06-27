@@ -1,0 +1,10 @@
+#:schema null
+
+name = "deploy-test"
+compatibility_date = "2025-06-17"
+main = "main.ts"
+
+[[deco.bindings]]
+name = "SLACK"
+type = "mcp"
+integration_id = "i:f64d7890-c17f-45ad-93ec-6dd08efbdbd0"
