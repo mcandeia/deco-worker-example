@@ -22,6 +22,6 @@ jobs:
         run: deno install -Ar -g -n deco jsr:@deco/cli -f
 
       - name: Run deco deploy
-        run: deco deploy -t $DECO_DEPLOY_TOKEN
+        run: deco deploy -y -t $DECO_DEPLOY_TOKEN
         env:
           DECO_DEPLOY_TOKEN: ${{ secrets.DECO_DEPLOY_TOKEN }}
