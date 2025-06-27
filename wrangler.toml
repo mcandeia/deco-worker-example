@@ -1,6 +1,6 @@
 #:schema null
 
-name = "deploy-test"
+name = "deco-worker-example"
 compatibility_date = "2025-06-17"
 main = "main.ts"
 
