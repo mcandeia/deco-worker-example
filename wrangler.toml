@@ -1,6 +1,7 @@
 #:schema null
 
 name = "deco-worker-example"
+compatibility_flags = ["nodejs_compat"]
 compatibility_date = "2025-06-17"
 main = "main.ts"
 
