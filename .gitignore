@@ -141,3 +141,4 @@ dist
 
 ## package-lock
 package-lock.json
+deno.lock
