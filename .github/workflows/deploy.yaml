@@ -21,6 +21,9 @@ jobs:
       - name: Install Deco CLI
         run: deno install -Ar -g -n deco jsr:@deco/cli -f
 
+      - name: NPM Install
+        run: npm install
+
       - name: Build
         run: npx wrangler deploy --dry-run --outdir ./dist
 
