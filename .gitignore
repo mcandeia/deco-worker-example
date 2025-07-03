@@ -138,3 +138,6 @@ dist
 
 ## Wrangler
 .wrangler
+
+## package-lock
+package-lock.json

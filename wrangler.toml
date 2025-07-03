@@ -1,11 +1,22 @@
-#:schema null
-
 name = "deco-worker-example"
 compatibility_flags = ["nodejs_compat"]
 compatibility_date = "2025-06-17"
+compatibility_flags = [ "nodejs_compat" ]
 main = "main.ts"
+
+[deco]
+enable_workflows = true
 
 [[deco.bindings]]
 name = "SLACK"
 type = "mcp"
 integration_id = "i:f64d7890-c17f-45ad-93ec-6dd08efbdbd0"
+
+[[migrations]]
+tag = "v1"
+new_classes = [ "Workflow" ]
+
+[durable_objects]
+[[durable_objects.bindings]]
+name = "DECO_CHAT_WORKFLOW_DO"
+class_name = "Workflow"
