@@ -1,7 +1,6 @@
 name = "deco-worker-example"
 compatibility_flags = ["nodejs_compat"]
 compatibility_date = "2025-06-17"
-compatibility_flags = [ "nodejs_compat" ]
 main = "main.ts"
 
 [deco]
@@ -14,7 +13,7 @@ integration_id = "i:f64d7890-c17f-45ad-93ec-6dd08efbdbd0"
 
 [[migrations]]
 tag = "v1"
-new_classes = [ "Workflow" ]
+new_classes = ["Workflow"]
 
 [durable_objects]
 [[durable_objects.bindings]]
