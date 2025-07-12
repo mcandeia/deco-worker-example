@@ -1,40 +1,33 @@
 import { DefaultEnv, withRuntime } from "@deco/workers-runtime";
 import { createStep, createWorkflow } from "@deco/workers-runtime/mastra";
 import { z } from "zod";
-import { Env as EnvGen } from "./env.gen.ts";
+import { Env as EnvGen, StateSchema } from "./env.gen.ts";
 
 const step1 = createStep({
-  execute: ({ inputData: { input } }) => {
-    console.log("running");
-    return Promise.resolve({
-      output: input + 1,
-    });
+  execute: async ({ runtimeContext }) => {
+    const env = runtimeContext.get("env") as Env;
+    const channels = await env.USER_SLACK.LIST_CHANNELS({})
+    return channels;
   },
-  id: "sum",
-  inputSchema: z.object({
-    input: z.number(),
-  }),
-  outputSchema: z.object({
-    output: z.number(),
-  }),
+  id: "list_slack_channels",
+  inputSchema: z.any(),
+  outputSchema: z.any(),
 });
 
 const testWorkflow = () => createWorkflow({
   id: "test-workflow",
   description: "Test workflow",
-  inputSchema: z.object({
-    input: z.number(),
-  }),
-  outputSchema: z.object({
-    output: z.number(),
-  }),
+  inputSchema: z.any(),
+  outputSchema: z.any(),
 })
   .then(step1)
   .commit();
+export type Env = EnvGen & DefaultEnv<typeof StateSchema>;
 
-export type Env = EnvGen & DefaultEnv;
-
-const { Workflow, ...workerAPIs } = withRuntime<Env>({
+const { Workflow, ...workerAPIs } = withRuntime<Env, typeof StateSchema>({
+  oauth: {
+    state: StateSchema,
+  },
   workflows: [testWorkflow],
 });
 export { Workflow };

@@ -7,14 +7,14 @@
     "dev": "deco dev",
     "gen": "deco gen > env.gen.ts",
     "setup": "deno install -Ar -g -n deco jsr:@deco/cli -f",
-    "deploy": "wrangler deploy --dry-run --outdir ./dist && deco deploy ./dist"
+    "deploy": "wrangler deploy --dry-run --outdir ./dist && deco deploy ./dist -y --public"
   },
   "dependencies": {
     "@cloudflare/workers-types": "^4.20250617.0",
-    "@deco/mcp": "npm:@jsr/deco__mcp@^0.5.7-test-2",
-    "@deco/workers-runtime": "npm:@jsr/deco__workers-runtime@^0.2.18",
+    "@deco/mcp": "npm:@jsr/deco__mcp@^0.5.6",
+    "@deco/workers-runtime": "npm:@jsr/deco__workers-runtime@0.3.0",
     "@mastra/core": "0.0.0-support-d1-client-20250701191943",
-    "zod": "^3.25.67"
+    "zod": "^3.24.3"
   },
   "devDependencies": {
     "wrangler": "^4.13.2"
