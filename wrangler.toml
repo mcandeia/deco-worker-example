@@ -1,13 +1,16 @@
-#:schema null
+#:schema node_modules/@deco/workers-runtime/config-schema.json
 
 name = "deco-worker-example-2"
-compatibility_flags = [ "nodejs_compat" ]
+compatibility_flags = ["nodejs_compat"]
 compatibility_date = "2025-06-17"
 main = "main.ts"
 scope = "candeia"
 
 [deco]
 enable_workflows = true
+workspace = "/users/e8aef163-ab66-4c77-980b-d4aad9e47160"
+app = "deco-worker-example-2"
+local = true
 
 [[deco.bindings]]
 name = "USER_SLACK"
@@ -21,7 +24,7 @@ integration_id = "i:f64d7890-c17f-45ad-93ec-6dd08efbdbd0"
 
 [[migrations]]
 tag = "v1"
-new_classes = [ "Workflow" ]
+new_classes = ["Workflow"]
 
 [durable_objects]
 [[durable_objects.bindings]]
